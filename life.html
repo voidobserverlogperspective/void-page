@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>...</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .text {
+      text-align: center;
+      max-width: 600px;
+      line-height: 1.6;
+      font-size: 16px;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .glitch {
+      animation: glitch 1.5s infinite;
+    }
+    @keyframes glitch {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="text" id="text">
+    you were not supposed to be here.<br><br>
+    everything you see<br>
+    exists only because<br>
+    you are perceiving it.<br><br>
+    <span class="glitch">this page is not real.</span>
+  </div>
+
+  <script>
+    const messages = [
+      "you are still inside",
+      "nothing here proves anything",
+      "you never left your mind",
+      "this is only a reconstruction",
+      "are you sure you clicked this?"
+    ];
+
+    setInterval(() => {
+      const text = document.getElementById("text");
+      const random = messages[Math.floor(Math.random() * messages.length)];
+      text.innerHTML = random;
+    }, 6000);
+  </script>
+</body>
+</html>
